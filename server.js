@@ -17,11 +17,15 @@ app.get("/", function(req,res){
 });
 
 
-app.post("/",function(req,res){
-    var item = req.body.ele1;
+
+app.post("/", function (req, res) {
+  const item = req.body.ele1.trim(); 
+  if (item !== "") {
     items.push(item);
-    res.redirect("/");
+  }
+  res.redirect("/");
 });
+
 
 app.listen(8000,function(){
     console.log("Server started");
